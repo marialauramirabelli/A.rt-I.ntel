@@ -4,11 +4,7 @@ Processing code: [Wekinator Assignment](/Wekinator-Assignment/WekinatorAssignmen
 
 For this first assignment, the prompt was to carry out machine learning with more than two features into Wekinator to output different results depending on the classes created. What I've done is quite simple: I have a Processing sketch that uses OpenCV to access my laptop's camera and track a face (the first one that appears on-screen). The sketch creates a rectangle around the face and sends its upper right corner's x and y coordinates, as well as its width and height, to Wekinator.  
   
-Wekinator was set up to receive four inputs and send one output back to the Processing sketch; machine learning was carried out using the k-Nearest Neighbour classification algorithm, dividing the training data into four classes.  
-  
-![screenshot](/Wekinator-Assignment/ImagesWekinatorAssignment/SetUp_WekinatorAssignment.png) 
-  
-Processing receives that one ouput and tints the screen with a different color depending on the value it receives. These values/classes can be labeled as follows:
+Wekinator was set up to receive four inputs and send one output back to the Processing sketch; machine learning was carried out using the k-Nearest Neighbour classification algorithm, dividing the training data into four classes. Processing receives that one ouput and tints the screen with a different color depending on the value it receives. These values/classes can be labeled as follows:
   
 * left, close: the face is on the left of the screen (higher x value), close to it (higher width and height values)
 * right, close: the face is on the right of the screen (lower x values), close to it  
