@@ -6,7 +6,7 @@ For this first assignment, the prompt was to carry out machine learning with mor
   
 Wekinator was set up to receive four inputs and send one output back to the Processing sketch; machine learning was carried out using the k-Nearest Neighbour classification algorithm, dividing the training data into four classes.  
   
-![screenshot](/Wekinator-Assignment/ImagesWekinatorAssignment/SetUp_WekinatorAssignment.JPG) 
+![screenshot](/Wekinator-Assignment/ImagesWekinatorAssignment/SetUp_WekinatorAssignment.png) 
   
 Processing receives that one ouput and tints the screen with a different color depending on the value it receives. These values/classes can be labeled as follows:
   
