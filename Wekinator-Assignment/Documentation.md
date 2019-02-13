@@ -6,13 +6,13 @@ For this first assignment, the prompt was to carry out machine learning with mor
   
 Wekinator was set up to receive four inputs and send one output back to the Processing sketch; machine learning was carried out using the k-Nearest Neighbour classification algorithm, dividing the training data into four classes. Processing receives that one ouput and tints the screen with a different color depending on the value it receives. These values/classes can be labeled as follows:
   
-* left, close: the face is on the left of the screen (higher x value), close to it (higher width and height values)
-* right, close: the face is on the right of the screen (lower x values), close to it  
+* left, close: the face is on the left side of the screen (higher x value), close to it (higher width and height values)
+* right, close: the face is on the right of side the screen (lower x values), close to it  
   
 ![screen vertical](/Wekinator-Assignment/ImagesWekinatorAssignment/Screen1.png)  
   
 * upper right corner, far: the face is above a diagonal that goes from the upper left corner to the lower right corner (x and y values above the diagonal), far from the screen (lower width and height values)
-* lower left corner, far: the face is below a diagonal that goes from the upper left corner to the lower right corner, far from the screen 
+* lower left corner, far: the face is below the diagonal that goes from the upper left corner to the lower right corner, far from the screen 
   
 ![screen diagonal](/Wekinator-Assignment/ImagesWekinatorAssignment/Screen.png)  
   
