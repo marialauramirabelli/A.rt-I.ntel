@@ -12,7 +12,7 @@ Wekinator was set up to receive four inputs and send one output back to the Proc
 * upper right corner, far: the face is above a diagonal that goes from the upper left corner to the lower right corner (x and y values above the diagonal), far from the screen (lower width and height values)
 * lower left corner, far: the face is below a diagonal that goes from the upper left corner to the lower right corner, far from the screen 
   
-![screen diagonal](/Wekinator-Assignment/ImagesWekinatorAssignment/Screen2.png)  
+![screen diagonal](/Wekinator-Assignment/ImagesWekinatorAssignment/Screen.png)  
   
 I have to point out that for the screen to mirror what the camera captures, I used pushMatrix() and popMatrix() in the code (to invert the video along the x-axis). This is why the x values appear as "higher" on the left side of the screen and "lower" on the right side (which is the inverse of what's intuitive). Another aspect worth noticing is that the divisions between "left" and "right", and "above diagonal" and "below diagonal" learned by Wekinator (particularly in the case of the "close" classes) doesn't exactly correspond to what I intended exactly. The position features that were sent to Wekinator can be improved; because they correspond to a corner of the face, no values are detected when that specific corner is not on-screen. This means that there are certain spots at the edge of the video where the presence of the face is not interpreted as it would ideally be.
 
