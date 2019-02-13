@@ -1,2 +1,2 @@
 # A.rt I.ntel
-Interactive Media course @ NYUAD (taken in Spring 2019)
+Interactive Media Directed Study @ NYUAD (Spring 2019)
