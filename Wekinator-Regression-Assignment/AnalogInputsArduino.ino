@@ -1,3 +1,6 @@
+/* Created using the RunOnArduino code from Goldsmith's 
+"Machine Learning for Musicians and Artists" course */
+
 int analogPin1 = A1;
 int analogPin2 = A2;
 int analogPin3 = A3;
