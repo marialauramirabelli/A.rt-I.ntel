@@ -1,3 +1,6 @@
+/* Created using the SerialWithProcessing_AdaptiveInputs code from Goldsmith's
+"Machine Learning for Musicians and Artists" course */
+
 import processing.serial.*;
 import controlP5.*;
 import java.util.*;
