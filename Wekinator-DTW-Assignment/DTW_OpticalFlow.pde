@@ -60,7 +60,7 @@ void draw() {
   
   PVector aveFlow = opencv.getAverageFlow();
   int flowScale = 50;
-  println(aveFlow);
+  //println(aveFlow);
   
   OscMessage msg = new OscMessage("/wek/inputs");
   msg.add((float)aveFlow.x);
