@@ -1,6 +1,6 @@
 ## Wekinator Assignment  
 Video: https://youtu.be/4RyYUP0bcEA   
-Processing code: [Wekinator Assignment](/Wekinator-Assignment/WekinatorAssignment.pde)
+Processing code: [Inputs & Outputs](/Wekinator-Assignment/WekinatorAssignment.pde)
 
 For this first assignment, the prompt was to carry out machine learning with more than two features into Wekinator to output different results depending on the classes created. What I've done is quite simple: I have a Processing sketch that uses OpenCV to access my laptop's camera and track a face (the first one that appears on-screen). The sketch creates a rectangle around the face and sends its upper right corner's x and y coordinates, as well as its width and height, to Wekinator.  
   
