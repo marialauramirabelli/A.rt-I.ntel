@@ -1,3 +1,7 @@
+/* Created using the openCV LiveCamTest and OpticalFlow examples, 
+as well as the DTW_Mouse_Explorer and Processing_PitchSlide_1Continuous code
+from Goldsmith's "Machine Learning for Musicians and Artists" course*/
+
 import gab.opencv.*;
 import processing.video.*;
 import java.awt.*;
