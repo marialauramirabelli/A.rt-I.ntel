@@ -24,8 +24,7 @@ void setup() {
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
 
   video.start();
-    
-  opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
+  
   faces = opencv.detect();
   
   /* start oscP5, listening for incoming messages at port 12000 */
