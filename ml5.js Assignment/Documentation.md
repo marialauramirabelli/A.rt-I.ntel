@@ -1,6 +1,6 @@
 ## ml5.js Assignment  
 Video: https://youtu.be/VzBLXI27L6I  
-HTML code (/Wekinator-Regression-Assignment/AnalogInputsArduino.ino)  
-Javascript code (/Wekinator-Regression-Assignment/AnalogInputsArduino.ino)  
+[HTML code] (/ml5.js Assignment/ml5.js/index.html)  
+Javascript code (/ml5.js Assignment/ml5.js/sketch.js)  
     
 (Full documentation to be posted soon.)
