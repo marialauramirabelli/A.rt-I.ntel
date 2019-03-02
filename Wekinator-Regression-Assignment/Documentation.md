@@ -7,7 +7,7 @@ For this regression assignment, my intention was to use three analog inputs read
   
 ![circuit](/Wekinator-Regression-Assignment/ImagesRegressionAssignment/Circuit.jpg)  
   
-I originally wanted to work with sound, which was used often in Goldsmith's online course "Machine Learning for Musicians and Artists", potentially using different sound files and alternating between them, and/or changing aspects like volume and playback rate. However, I had two main problems.  
+I originally wanted to work with sound, which was used often in Goldsmith's online course "Machine Learning for Musicians and Artists", potentially using different sound files and alternating between them, and/or changing aspects like volume and playback rate. However, I had two main problems:  
 - The first one was related to the sound libraries I tried. The Processing Sound library and the Minim library have methods to manipulate aspects of sound files, but they didn't work consistently. Not necessarily because of how I trained the inputs and translated them to sound, but because these libraries methods would fail every now and then, as the Processing console let me know with error messages.  
 - I couldn't really figure out a logic to the outputs that made sense. I tried training different (sometimes random) combinations of the Wekinator output sliders but realized they didn't result in good interactions.  
   
