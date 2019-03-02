@@ -1,8 +1,4 @@
-// Daniel Shiffman
-// http://youtube.com/thecodingtrain
-// http://codingtra.in
-
-// Transfer Learning Feature Extractor Regression with ml5
+// Based on Daniel Shiffman's "Transfer Learning Feature Extractor Regression with ml5"
 // https://youtu.be/aKgq0m1YjvQ
 
 let mobilenet;
