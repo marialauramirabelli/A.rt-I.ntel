@@ -1,6 +1,15 @@
 ## ml5.js Assignment  
 Video: https://youtu.be/VzBLXI27L6I  
-[HTML code](/ml5js-Assignment/ml5.js/index.html)  
-[Javascript code](/ml5js-Assignment/ml5.js/sketch.js)  
-    
-(Full documentation to be posted soon.)
+[HTML code](/ml5js-Assignment/ml5.js-Regression/index.html)
+[Javascript code](/ml5js-Assignment/ml5.js-Regression/sketch.js)  
+  
+For this assignment, the Javascript code is based on Daniel Shiffman's ["Transfer Learning Feature Extractor Regression with ml5](https://www.youtube.com/watch?v=aKgq0m1YjvQ), which uses ml5.js to detect changes captured on video (through the featureExtractor method) and then feeds them into a regression model to get outputs. We were given the option to use either classification or regression for this assignment, but given that I struggled with regression in a previous Wekinator assignment, I wanted to try it again for this one.  
+  
+I followed the suggestion that a possible outcome of using the regression model could be to make an object "shake" in response to movement captured on the video. An object could be displayed on the browser next to the video; if a person, detected by the camera, moves so that they seem to be approaching the object outside of the video boundary, the object shakes (from from left to right) in return. To make it slightly more complex, the closer the person is, the farther from the resting point the object moves.  
+  
+My program shows the video, split into eight equal sections by horizontal lines. I did this to facilitate the training process; for each training example, I placed an object (the video shows it was the head of a small book light) within one of these sections (or in none, because one of the inputs corresponds to the object's absence), and the resulting output was a position on a regression slider. The logic behind the slider movement is that its center position (0.5 in the scale from 0 to 1 that corresponds to regression values) is the resting point, so the object is not on camera. When the object is on the first section (the one at the top of the video), the slider is moved a bit either to the left or the right. When the object moves to the second section, the slider is moved to the opposite direction so that it is a similar distance from the resting point as it was before, but in the opposite direction. When the object moves to the third section, the slider is moved to the original direction (left or right) but farther away from the resting point. This continued until the seventh and eighth sections, were the slider was at its two extremes (0 for one section and 1 for the other).  
+  
+The object that reacts to this movement is a small "palm tree" placed at the bottom of the video and made with curves and a triangle. All of the curves, which make up the leaves, have a point in common (where they "attach" to the triangle or the trunk of the palm tree); their other point, the other end of the leaf, is what moves in response to the book light's movement. The values of the slider were mapped from 0-1 to (-200)-200, so that the 0.5 in the slider (the resting point) results in a 0. This is used to change the placement of the moving leaf points in the x-axis; whatever number is outputted by the regression model and then mapped is later subtracted from the current x-coordinate of the leaves' moving points, so that this coordinate changes constantly in reaction to the book light's closeness to it. The following graph is an attempt to show the relationship between the closeness of the book light to the palm tree/bottom of the video and the distance of the leaves' points from their resting positions (maybe the regression model created a functon for a similar graph?):  
+  
+![graph](/ml5js-Assignment/ImagesMl5.jsRegression/graph_.png)  
+  
