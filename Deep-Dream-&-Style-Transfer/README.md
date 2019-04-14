@@ -1,5 +1,5 @@
-# STYLE TRANSFER 
-Famous Latin American Women + Victor Vasarely Works
+# CNN Images   
+## STYLE TRANSFER: Famous Latin American Women + Victor Vasarely Works
   
   
 #### Carmen Lyra + "Vega-Nor" 
