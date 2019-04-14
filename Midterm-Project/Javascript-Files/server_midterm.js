@@ -21,13 +21,14 @@ app.use(bodyParser.json())
 // ----------------*/
 const cloudant_USER = '4201d5b5-ff6e-4e5a-a738-7a2c7d9876f9-bluemix'
 const cloudant_DB = 'mashups'
-const cloudant_KEY = 'illipseversencentiatedus'
-const cloudant_PASSWORD = '5c0f604ce5c3cf740ff84e7ebb46b5bee1c4017e'
+const cloudant_KEY = 'riblogstasdowndstallestw'
+const cloudant_PASSWORD = 'd0a58e26447e026a0a780badc27333790b6445b7'
 const cloudant_URL = "https://" + cloudant_USER + ".cloudant.com/" + cloudant_DB
 
 var personRev;
 var personId;
 var scoreChange;
+var nameSame;
 
 
 app.use(function(req, res, next) { 
@@ -56,7 +57,7 @@ app.post('/fetch_external_image', async (req, res) => {
 })
 
 app.post("/save", (req,res) => {
-  console.log("A POST!!!!");
+  //console.log("A POST!!!!");
   //Get the data from the body
   var data = req.body;
   //console.log(data);
@@ -75,12 +76,12 @@ app.post("/save", (req,res) => {
   },
   (error, response, body) => {
     if (response.statusCode == 201){
-      console.log("Saved!");
+      //console.log("Saved!");
       res.json(body);
     }
     else{
-      console.log("Uh oh...");
-      console.log("Error: " + res.statusCode);
+      //console.log("Uh oh...");
+      //console.log("Error: " + res.statusCode);
       res.send("Something went wrong...");
     }
   });
@@ -88,7 +89,7 @@ app.post("/save", (req,res) => {
 
 // //JSON Serving route - Serve ALL Data
 app.get("/api/all", (req,res) => {
-  console.log('Making a db request for all entries');
+  //console.log('Making a db request for all entries');
   //Use the Request lib to GET the data in the CouchDB on Cloudant
   Request.get({
     url: cloudant_URL+"/_all_docs?include_docs=true",
@@ -106,14 +107,16 @@ app.get("/api/all", (req,res) => {
 });
 
 app.post("/changeScore", (req,res) => {
-  console.log("Getting score");
+  //console.log("Getting score");
   //Get the data from the body
   var data = req.body;
   personId = data.personID;
   personRev = data.personREV;
   imgSame = data.imgString;
-  numSame = data.personNumber,
+  numSame = data.personNumber;
   scoreChange = data.score;
+  nameSame = data.personName;
+
 
   //console.log(data);
 
@@ -133,12 +136,14 @@ app.post("/changeScore", (req,res) => {
       '_rev': personRev,
       "imgString": imgSame,
       "personNumber": numSame,
-      'score': scoreChange//where all of our data goes
+      'score': scoreChange,
+  //where all of our data goes
+      'personName': nameSame
     }
   };
 
   Request.put(putOptions, function(err, body){
-    console.log("CHANGE MADE to database document") //should give you a message saying that you have successfully inserted
+    //console.log("CHANGE MADE to database document") //should give you a message saying that you have successfully inserted
   });
 });
 
