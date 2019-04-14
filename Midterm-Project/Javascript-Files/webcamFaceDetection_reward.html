@@ -6,105 +6,108 @@
     <script src="js/drawing.js"></script>
     <script src="js/faceDetectionControls.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
     
-    <div class="page-container">
+    <div class="container-fluid text-center">
 
       <p class="title1"> REWARD ANALYZER </p>
 
-       <a href="webcamFaceDetection_emotion.html">Happines Authorities</a>
+      <a href="webcamFaceDetection_emotion.html">Happines Authorities</a>
 
-       <div class="title2">Once your evaluation is completed, take a photograph of the screen. This photograph serves as the proof
-         of your evaluation.</div>
-       <div class="title2">Present the photograph to Jack or Ume, who will hand you your reward (if any).</div>
+      <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            <div class="title2"> Once your evaluation is completed, take a photograph of the screen. </div>
+            <div class="title2"> This photograph serves as the proofof your evaluation.</div>
+            <div class="title2">Present the photograph to Jack or Ume to get your reward (if any).</div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
 
-      <div style="position: relative" class="margin">
-        <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
-        <canvas id="overlay" />
+      <div class="container-fluid text-center">    
+        <div class="row">
+          <div class="col-sm-7">
+            <div style="position: relative" class="margin">
+              <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
+              <canvas id="overlay" />
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="title3" id="whichCitizen"></div>
+            <div class="title3" id="score">Waiting for Social Credit Score...</div>
+            <div class="title3" id="scoreLevel">Waiting for Social Credit Score Level...</div>
+            <div class="title3" id="scoreEv1">Waiting for Social Credit Score Evaluation...</div>
+            <div class="title4" id="scoreEv"></div>
+            <div class="title3" id="date">Waiting for date/time information...</div>
+          </div>
+        </div>
       </div>
-
-      <!-- <div id="results"></div> -->
 
       <script src="js/webcam.min.js"></script>
 
     </div>
 
-    <div class="page-container">
-     <!--  <p> Message from expression evaluator: </p> -->
-     <div class="title3" id="score">Waiting for Social Credit Score...</div>
-     <div class="title3" id="scoreLevel">Waiting for Social Credit Score Level...</div>
-      <div class="title3" id="scoreEv">Waiting for Social Credit Score Evaluation...</div>
-      <div class="title3" id="date">Waiting for date/time information...</div>
-      <!-- <br><br>
-      <p> Message from social credit evaluator: </p>
-      <p id="socCredEv"></p>-->
-    </div>
-
-    <div class="page-container">
-      <div id="my_camera"></div>
-      <!--  <p> Query Image: </p> -->
-
-      <div id="query" style="position: relative" class="margin">
-        <img id="queryImg" src="" style="max-width: 800px;" />
-        <canvas id="queryImgOverlay" class="overlay"/>
+    <div class="container-fluid text-center">    
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+          <div id="my_camera"></div>
+          <p>Real Time Camera</p>
+        </div>
+        <div class="col-sm-3"> 
+          <div id="query" style="position: relative" class="margin">
+            <img id="queryImg" src="" style="width: 270px; height: 180px" />
+            <canvas id="queryImgOverlay" class="overlay"/>
+          </div>
+          <p>Camera Image</p>    
+        </div>
+        <div class="col-sm-3">
+          <div id="ref" style="position: relative" class="margin">
+            <img id="refImg" src="" style="width: 270px; height: 180px" />
+            <canvas id="refImgOverlay" class="overlay"/>
+            
+          </div>
+          <p>Database Image</p>
+        </div>
+        <div class="col-sm-"></div>
       </div>
+    </div><br>
 
-      <!-- <p> Reference Image: </p> -->
-
-      <!-- <div class="progress" id="loader"> -->
-        <!-- <div class="indeterminate"></div> -->
-      
-      <div id="ref" style="position: relative" class="margin">
-        <img id="refImg" src="" style="max-width: 800px;" />
-        <canvas id="refImgOverlay" class="overlay"/>
-      </div>
-
-     <!--  <p> Expression Image: </p> -->
-
-<!--       <div id="exp" style="position: relative" class="margin">
-        <img id="expImg" src="" style="max-width: 800px;" />
-        <canvas id="expImgOverlay" class="overlay"/>
-      </div>
-    </div> -->
-    
-    </body>
+  </body>
 
     <script>
       //VARIABLES//
-
       //variables from sample code
       let faceMatcher = null
       let thresh = 0.1
       let forwardTimes = []
-
       //defines whether or not snapshot has been taken/will be retaken
       let snapshotTaken = false;
-
       //save person identity, social credit score, emotion as objects
       let personInfo;
       //let emotionScore = 0;
       let personNum = 1;
       let whichPerson;
+      let citizenName;
       //let initialScore;
       let socialCreditScore;
       //var newPerson;
-
       //saves uri of current query image
       let uri;
-
       const imageList = []
-
       //saves info for images in database
       var databaseInfo;
       var personREV;
       var personID;
-
       //FUNCTIONS//
-
       //retrieves uri data from images in database and saves it in global variable databaseInfo
       function getAllData(){
         $.ajax({
@@ -130,7 +133,6 @@
           }
         });
       }
-
       //tells server to save new person image to database
       // function saveData(obj){
       //   var jsonObj = JSON.stringify(obj);
@@ -149,7 +151,6 @@
       //     }
       //   });
       // }
-
       //video-related function from sample code
       function updateTimeStats(timeInMs) {
         forwardTimes = [timeInMs].concat(forwardTimes).slice(0, 30)
@@ -158,16 +159,15 @@
         $('#fps').val(`${faceapi.round(1000 / avgTimeInMs)}`)
       }
       Webcam.set({
-        width: 320,
-        height: 240,
+        width: 270,
+        height: 180,
         image_format: 'jpeg',
         jpeg_quality: 90
       });
       Webcam.attach("my_camera");
-
       //take snapshot and get image data for query image
       function take_snapshot() {
-        console.log("TAKE ANOTHER SNAPSHOT NOW")
+        //console.log("TAKE ANOTHER SNAPSHOT NOW")
         Webcam.snap( function(data_uri) {
           uri = data_uri;
           personNum = 1;
@@ -175,17 +175,15 @@
           checkPersonDatabase();
         });
       }
-
       //defines interval in which snapshots can be taken (if a person is detected)
       //var intervalID = window.setInterval(resetSnapshot, 30000);
       //resets snapshot boolean to retake snapshot
       function resetSnapshot() {
         if(snapshotTaken){
           getAllData()
-          console.log("Snapshot reset");
+          //console.log("Snapshot reset");
         }
       }
-
        //video-related function from sample code
       async function onPlay() {
         const videoEl = $('#inputVideo').get(0)
@@ -205,37 +203,36 @@
             snapshotTaken = true;
           }
         }
-        // else{
-        //   console.log("NO PERSON :(")
-        // }
+        else{
+          document.getElementById("whichCitizen").innerHTML = "";
+          document.getElementById("score").innerHTML = "Waiting for Social Credit Score...";
+          document.getElementById("scoreLevel").innerHTML = "Waiting for Social Credit Score Level...";
+          document.getElementById("scoreEv1").innerHTML = "Waiting for Social Credit Score Evaluation...";
+          document.getElementById("scoreEv").innerHTML = "";
+          document.getElementById("date").innerHTML = "Waiting for date/time information...";
+        }
         setTimeout(() => onPlay())
       }
-
       //goes through uri data that was taken from database and sends data to uploadRefImage;  finds match for query image
       function checkPersonDatabase(){
         uploadRefImage(databaseInfo[personNum - 1].imgString);
         updateResults();
-
       }
-
       //assigns an image to the refImg  html img tag (images from database go here)
       async function uploadRefImage(src) {
         $('#refImg').get(0).src = src
       }
-
       //assigns an image to the queryImg  html img tag (snapshots go here)
       //assigns an image to the expImg  html img tag (snapshots go here)
       async function uploadQueryImage(src) {
         $('#queryImg').get(0).src = src
         //$('#expImg').get(0).src = src
       }
-
       async function updateResults() {
-        console.log("in updateResults")
+        //console.log("in updateResults")
         await updateReferenceImageResults()
         await updateQueryImageResults()
       }
-
       async function updateReferenceImageResults() {
         const imgEl = $('#refImg').get(0)
         const canvas = $('#refImgOverlay').get(0)
@@ -260,11 +257,10 @@
           .map((box, i) => new faceapi.BoxWithText(box, "Database Image"))
         faceapi.drawDetection(canvas, boxesWithText)
       }
-
       async function updateQueryImageResults() {
         if (!faceMatcher) {
           return
-          console.log("in !faceMatcher")
+          //console.log("in !faceMatcher")
         }
         //the block of code above blocked this function, for some reason. I think it has to do with faceMatcher as an
         //object. I wasn't sure how to fix it, so I commented it out. It's something we should try to tackle later.
@@ -287,7 +283,6 @@
           )
         )
         faceapi.drawDetection(canvas, boxesWithText)
-
         identifyPerson(resizedResults.map(({ detection, descriptor }) =>
           new faceapi.BoxWithText(
             detection.box,
@@ -297,7 +292,6 @@
           )
         ));
       }
-
       async function identifyPerson(boxObj){
         //this block of code identifies whether or not the query image is an unknown person. 
         var json = JSON.stringify(boxObj);
@@ -317,7 +311,7 @@
               break
             }
             if(smallArray[0] == "_text"){
-              console.log(smallArray[1][0]);
+              //console.log(smallArray[1][0]);
               if(smallArray[1][0] == "unknown"){
                 if(personNum < databaseInfo.length) {
                   personNum += 1;
@@ -341,7 +335,6 @@
           }
         }
       }
-
       //check which person it is
       async function checkPersonNum () {
         const refImgSrc = $('#refImg').get(0).src;
@@ -351,37 +344,59 @@
             socialCreditScore = databaseInfo[i].score;
             personREV = databaseInfo[i]._rev;
             personID = databaseInfo[i]._id;
+            citizenName = databaseInfo[i].personName;
             break
           }
         }
       }
-    
+      console.log(citizenName);
       async function updateScoreResults() {
         if (socialCreditScore <= 750 && socialCreditScore > 650) {
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
           document.getElementById("score").innerHTML = "Social Credit Score: " + socialCreditScore
           document.getElementById("scoreLevel").innerHTML = "Score Level II: 651 - 750"
-          document.getElementById("scoreEv").innerHTML = "PERSON "+personNum+", you're allowed to take one snack for free."
+          document.getElementById("scoreEv1").innerHTML = ""
+          document.getElementById("scoreEv").innerHTML = "You're allowed to take one snack for free."
         } else if (socialCreditScore > 750) {
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
           document.getElementById("score").innerHTML = "Social Credit Score: " + socialCreditScore
           document.getElementById("scoreLevel").innerHTML = "Score Level I: Above 750"
-          document.getElementById("scoreEv").innerHTML = "PERSON "+personNum+", you're allowed to take two snacks for free."
+          document.getElementById("scoreEv1").innerHTML = ""
+          document.getElementById("scoreEv").innerHTML = " You're allowed to take two snacks for free."
         } else if (socialCreditScore <= 650 && socialCreditScore > 550) {
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
           document.getElementById("score").innerHTML = "Social Credit Score: " + socialCreditScore
           document.getElementById("scoreLevel").innerHTML = "Score Level III: 551 - 650"
-          document.getElementById("scoreEv").innerHTML = "PERSON "+personNum+", you're not allowed to take any free snacks. Each snack costs 1 AED."
+          document.getElementById("scoreEv1").innerHTML = ""
+          document.getElementById("scoreEv").innerHTML = " You're not allowed to take any free snacks. Each snack costs 1 AED."
         } else if(socialCreditScore <= 550){
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
           document.getElementById("score").innerHTML = "Social Credit Score: " + socialCreditScore
           document.getElementById("scoreLevel").innerHTML = "Score Level IV: Below 551"
-          document.getElementById("scoreEv").innerHTML = "PERSON "+personNum+", you're not allowed to take any free snacks. "+
+          document.getElementById("scoreEv1").innerHTML = ""
+          document.getElementById("scoreEv").innerHTML = " You're not allowed to take any free snacks. "+
           "Each snack costs 2 AED."
         }
-
         var dateNow = new Date();
         document.getElementById("date").innerHTML = "Date: "+dateNow;
-
         setTimeout(resetSnapshot, 10000);
       }
-
       // function changeScore(obj){
       //   var jsonObj = JSON.stringify(obj);
       //   $.ajax({
@@ -400,7 +415,6 @@
       //     }
       //   });
       // }
-
       async function run() {
         // load face detection, face landmark model and face recognition models
         await changeFaceDetector(selectedFaceDetector)
