@@ -6,78 +6,89 @@
     <script src="js/drawing.js"></script>
     <script src="js/faceDetectionControls.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
   </head>
   <body>
     
-    <div class="page-container">
-
+    <div class="container-fluid text-center">
       <p class="title1"> EMOTION DETECTOR </p>
-
       <a href="webcamFaceDetection_reward.html">Happiness Authorities</a>
-
-      <div style="position: relative" class="margin">
-        <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
-        <canvas id="overlay" />
-      </div>
-
-      <!-- <div id="results"></div> -->
-
-      <script src="js/webcam.min.js"></script>
-
     </div>
 
-    <div class="page-container">
-     <!--  <p> Message from expression evaluator: </p> -->
-      <div class="title3" id="expEv">Waiting for Emotion Evaluation...</div>
-      <div class="title3" id="score">Waiting for Social Credit Score...</div>
-      <!-- <br><br>
-      <p> Message from social credit evaluator: </p>
-      <p id="socCredEv"></p>-->
-    </div>
+    <div class="container-fluid text-center">    
+      <div class="row">
+        <div class="col-sm-7">
+          <div style="position: relative" class="margin">
+            <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
+            <canvas id="overlay" />
+          </div>
+        </div>
+        <div class="col-sm-5" id="note-container">
+          <div class="title3" id="citizenNum"></div>
+          <div class="title3" id="expEv">Waiting for Emotion Evaluation...</div>
+          <div class="title3" id="emotionScore"></div>
+          <div class="title3" id="score">Waiting for Social Credit Score...</div>
+          <div class="title4" id="note_1"></div>
+          <div class="title4" id="note_2"></div>
+          <div class="title4" id="note_3"></div>
+          
 
-    <div class="page-container">
-      <div id="my_camera"></div>
-      <!--  <p> Query Image: </p> -->
-
-      <div id="query" style="position: relative" class="margin">
-        <img id="queryImg" src="" style="max-width: 800px;" />
-        <canvas id="queryImgOverlay" class="overlay"/>
-      </div>
-
-      <!-- <p> Reference Image: </p> -->
-
-      <!-- <div class="progress" id="loader"> -->
-        <!-- <div class="indeterminate"></div> -->
-      
-      <div id="ref" style="position: relative" class="margin">
-        <img id="refImg" src="" style="max-width: 800px;" />
-        <canvas id="refImgOverlay" class="overlay"/>
-      </div>
-
-     <!--  <p> Expression Image: </p> -->
-
-      <div id="exp" style="position: relative" class="margin">
-        <img id="expImg" src="" style="max-width: 800px;" />
-        <canvas id="expImgOverlay" class="overlay"/>
+        </div>
       </div>
     </div>
+
+    <script src="js/webcam.min.js"></script>
+    <div class="container-fluid text-center">    
+      <div class="row">
+        <div class="col-sm-3">
+          <div id="my_camera"></div>
+          <p>Real Time Camera</p>
+        </div>
+        <div class="col-sm-3"> 
+          <div id="query" style="position: relative" class="margin">
+            <img id="queryImg" src="" style="width: 270px; height: 180px" />
+            <canvas id="queryImgOverlay" class="overlay"/>
+          </div>
+          <p>Camera Image</p>    
+        </div>
+        <div class="col-sm-3">
+          <div id="ref" style="position: relative" class="margin">
+            <img id="refImg" src="" style="width: 270px; height: 180px" />
+            <canvas id="refImgOverlay" class="overlay"/>
+            
+          </div>
+          <p>Database Image</p>
+        </div>
+        <div class="col-sm-3">
+          <div id="exp" style="position: relative" class="margin">
+            <img id="expImg" src="" style="width: 270px; height: 180px" />
+            <canvas id="expImgOverlay" class="overlay"/>
+          </div>
+          <p>Expression Detection</p>
+        </div>
+      </div>
+    </div><br>
     
-    </body>
+
+    
+    
+  </body>
 
     <script>
       //VARIABLES//
-
       //variables from sample code
       let faceMatcher = null
       let thresh = 0.1
       let forwardTimes = []
-
       //defines whether or not snapshot has been taken/will be retaken
       let snapshotTaken = false;
-
       //save person identity, social credit score, emotion as objects
       let personInfo;
       let emotionScore = 0;
@@ -85,20 +96,16 @@
       let whichPerson;
       let initialScore;
       let socialCreditScore;
+      let citizenName = "name";
       var newPerson;
-
       //saves uri of current query image
       let uri;
-
       const imageList = []
-
       //saves info for images in database
       var databaseInfo;
       var personREV;
       var personID;
-
       //FUNCTIONS//
-
       //retrieves uri data from images in database and saves it in global variable databaseInfo
       function getAllData(){
         $.ajax({
@@ -118,13 +125,12 @@
               return d.doc;
             });
             databaseInfo = theData;
-            console.log("GOT DATA FROM DATABASE!")
+            //console.log("GOT DATA FROM DATABASE!")
             snapshotTaken = false;
             //console.log(theData);
           }
         });
       }
-
       //tells server to save new person image to database
       function saveData(obj){
         var jsonObj = JSON.stringify(obj);
@@ -134,16 +140,15 @@
           contentType: 'application/json',
           data: jsonObj,
           error: function(resp){
-            console.log("Oh no...");
-            console.log(resp);
+            //console.log("Oh no...");
+            //console.log(resp);
           },
           success: function(resp){
-            console.log('WooHoo!');
-            console.log("data" +resp);
+           //console.log('WooHoo!');
+            //console.log("data" +resp);
           }
         });
       }
-
       //video-related function from sample code
       function updateTimeStats(timeInMs) {
         forwardTimes = [timeInMs].concat(forwardTimes).slice(0, 30)
@@ -152,34 +157,32 @@
         $('#fps').val(`${faceapi.round(1000 / avgTimeInMs)}`)
       }
       Webcam.set({
-        width: 320,
-        height: 240,
+        width: 270,
+        height: 180,
         image_format: 'jpeg',
         jpeg_quality: 90
       });
       Webcam.attach("my_camera");
-
       //take snapshot and get image data for query image
       function take_snapshot() {
-        console.log("TAKE ANOTHER SNAPSHOT NOW")
+        //console.log("TAKE ANOTHER SNAPSHOT NOW")
         Webcam.snap( function(data_uri) {
           uri = data_uri;
           personNum = 1;
+          citizenName = "name";
           uploadQueryImage(uri);
           checkPersonDatabase();
         });
       }
-
       //defines interval in which snapshots can be taken (if a person is detected)
       //var intervalID = window.setInterval(resetSnapshot, 30000);
       //resets snapshot boolean to retake snapshot
       function resetSnapshot() {
         if(snapshotTaken){
           getAllData()
-          console.log("Snapshot reset");
+          //console.log("Snapshot reset");
         }
       }
-
        //video-related function from sample code
       async function onPlay() {
         const videoEl = $('#inputVideo').get(0)
@@ -199,37 +202,39 @@
             snapshotTaken = true;
           }
         }
-        // else{
-        //   console.log("NO PERSON :(")
-        // }
+        else{
+          //console.log("NO PERSON :(")
+          document.getElementById("citizenNum").innerHTML = "";
+
+          document.getElementById("expEv").innerHTML = "Waiting for Emotion Evaluation...";
+          document.getElementById("note_1").innerHTML = "";
+          document.getElementById("note_2").innerHTML = "";
+          document.getElementById("note_3").innerHTML = "";
+          document.getElementById("emotionScore").innerHTML = "";
+          document.getElementById("score").innerHTML = "Waiting for Social Credit Score...";
+        }
         setTimeout(() => onPlay())
       }
-
       //goes through uri data that was taken from database and sends data to uploadRefImage;  finds match for query image
       function checkPersonDatabase(){
         uploadRefImage(databaseInfo[personNum - 1].imgString);
         updateResults();
-
       }
-
       //assigns an image to the refImg  html img tag (images from database go here)
       async function uploadRefImage(src) {
         $('#refImg').get(0).src = src
       }
-
       //assigns an image to the queryImg  html img tag (snapshots go here)
       //assigns an image to the expImg  html img tag (snapshots go here)
       async function uploadQueryImage(src) {
         $('#queryImg').get(0).src = src
         //$('#expImg').get(0).src = src
       }
-
       async function updateResults() {
-        console.log("in updateResults")
+        //console.log("in updateResults")
         await updateReferenceImageResults()
         await updateQueryImageResults()
       }
-
       async function updateReferenceImageResults() {
         const imgEl = $('#refImg').get(0)
         const canvas = $('#refImgOverlay').get(0)
@@ -254,11 +259,10 @@
           .map((box, i) => new faceapi.BoxWithText(box, "Database Image"))
         faceapi.drawDetection(canvas, boxesWithText)
       }
-
       async function updateQueryImageResults() {
         if (!faceMatcher) {
           return
-          console.log("in !faceMatcher")
+          //console.log("in !faceMatcher")
         }
         //the block of code above blocked this function, for some reason. I think it has to do with faceMatcher as an
         //object. I wasn't sure how to fix it, so I commented it out. It's something we should try to tackle later.
@@ -282,7 +286,6 @@
           )
         )
         faceapi.drawDetection(canvas, boxesWithText)
-
         identifyPerson(resizedResults.map(({ detection, descriptor }) =>
           new faceapi.BoxWithText(
             detection.box,
@@ -292,7 +295,6 @@
           )
         ));
       }
-
       async function identifyPerson(boxObj){
         //this block of code identifies whether or not the query image is an unknown person. 
         var json = JSON.stringify(boxObj);
@@ -312,7 +314,7 @@
               break
             }
             if(smallArray[0] == "_text"){
-              console.log(smallArray[1][0]);
+              //console.log(smallArray[1][0]);
               if(smallArray[1][0] == "unknown"){
                 if(personNum < databaseInfo.length) {
                   personNum += 1;
@@ -322,7 +324,7 @@
                   newPerson = true;
                   personNum += 1;
                   initialScore = Math.round(700 * detectionAccuracy);
-                  var imgObj = {imgString: uri, personNumber: personNum, score: initialScore};
+                  var imgObj = {imgString: uri, personNumber: personNum, score: initialScore, personName: citizenName};
                   saveData(imgObj)
                   // databaseInfo.push({imgString: uri, personNumber: personNum, score: initialScore})
                   $('#expImg').get(0).src = uri
@@ -340,7 +342,6 @@
           }
         }
       }
-
       //check which person it is
       async function checkPersonNum () {
         const refImgSrc = $('#refImg').get(0).src;
@@ -350,10 +351,14 @@
             initialScore = databaseInfo[i].score;
             personREV = databaseInfo[i]._rev;
             personID = databaseInfo[i]._id;
+            //console.log(databaseInfo[i].personName);
+            citizenName = databaseInfo[i].personName;
             break
           }
         }
       }
+
+
     
       async function updateExpResults() {
         if (!isFaceDetectionModelLoaded()) {
@@ -369,29 +374,65 @@
         //assign different emotionScores for each emotion, which influences people's social credit score
         if (expressionDetected == "neutral" || expressionDetected == "surprise") {
           emotionScore = 0;
-          document.getElementById("expEv").innerHTML = "PERSON "+personNum+", it's a beautiful day, you should be happier! "+
-          "You can do better to boost your Social Credit Score!"
+
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
+
+          document.getElementById("expEv").innerHTML = "Emotion: "+expressionDetected;
+          document.getElementById("note_1").innerHTML = "It's a beautiful day."
+          document.getElementById("note_2").innerHTML = "You should be happier!"
+          document.getElementById("note_3").innerHTML = "You can do better to boost your Social Credit Score!"
+          
           //document.getElementById("socCredEv").innerHTML = "Person "+personNum+", you're allowed to take one snack for free."
         } else if (expressionDetected == "happy") {
           emotionScore = 10;
-          document.getElementById("expEv").innerHTML = "PERSON "+personNum+", you're doing so well! Keep it up! "+
-          "You're an inspiration to others, so don't stop spreading happiness around you. :)"
+
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
+
+          document.getElementById("expEv").innerHTML = "Emotion: "+expressionDetected;
+          document.getElementById("note_1").innerHTML = "You're doing so well! Keep it up! "
+          document.getElementById("note_2").innerHTML = "You're an inspiration to others!"
+          document.getElementById("note_3").innerHTML = "Don't stop spreading happiness around you. :)"
           //document.getElementById("socCredEv").innerHTML = "Person "+personNum+", you're allowed to take two snacks for free."
         } else if (expressionDetected == "scared" || expressionDetected == "sad") {
           emotionScore = -5;
-          document.getElementById("expEv").innerHTML = "PERSON "+personNum+", turn that frown upside down! "+
-          "Remember, your emotions influence not only those around you, but also your Social Credit Score..."
+
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
+
+          document.getElementById("expEv").innerHTML = "Emotion: "+expressionDetected;
+          document.getElementById("note_1").innerHTML = "Turn that frown upside down!"
+          document.getElementById("note_2").innerHTML = "Remember, your emotions influence not only those around you"
+          document.getElementById("note_3").innerHTML = "but ALSO your Social Credit Score..."
+
           //document.getElementById("socCredEv").innerHTML = "Person "+personNum+", you're not allowed to take any free snacks."
         } else if (expressionDetected == "angry" || expressionDetected == "disgusted") {
           emotionScore = -10;
-          document.getElementById("expEv").innerHTML = "PERSON "+personNum+", your emotions are unacceptable, what a shame! "+
-          "Your Social Credit Score has gone down, but remember, a bright smile can change your day (and your number...)!"
-          //document.getElementById("socCredEv").innerHTML = "Person "+personNum+", you're not allowed to take any free snacks "+
-          //"and you will be charged an extra fee for any snacks you purchase."
+
+          
+          if (citizenName != "name") {
+            document.getElementById("citizenNum").innerHTML = citizenName;
+          } else {
+             document.getElementById("citizenNum").innerHTML = "PERSON "+personNum;
+          }
+          document.getElementById("expEv").innerHTML = "Emotion: "+expressionDetected;
+          document.getElementById("note_1").innerHTML = "Your emotions are unacceptable, what a shame!"
+          document.getElementById("note_2").innerHTML = "Your Social Credit Score has gone down"
+          document.getElementById("note_3").innerHTML = "But remember, a bright smile can change your day (and your number...)!"
+          
         }
         
         socialCreditScore = initialScore + emotionScore;
-
         var emotionScoreStr;
         if(emotionScore >= 0){
           emotionScoreStr = "+"+emotionScore;
@@ -399,18 +440,16 @@
         else{
           emotionScoreStr = ""+emotionScore;
         }
-
-        document.getElementById("score").innerHTML = "Social Credit Score ("+emotionScoreStr+"): " + socialCreditScore
-
+        document.getElementById("emotionScore").innerHTML = "Emotion Score: " + emotionScoreStr;
+        document.getElementById("score").innerHTML = "Final Social Credit Score: " + socialCreditScore;
        if(newPerson == false){
         var imgSrc = $('#refImg').get(0).src
-        var scScore = {personID: personID, personREV: personREV, imgString: imgSrc, personNumber: personNum, score: socialCreditScore};
+        var scScore = {personID: personID, personREV: personREV, imgString: imgSrc, personNumber: personNum, score: socialCreditScore, personName: citizenName};
         changeScore(scScore);
+        //console.log(scScore);
         }
-
         setTimeout(resetSnapshot, 10000);
       }
-
       function changeScore(obj){
         var jsonObj = JSON.stringify(obj);
         $.ajax({
@@ -420,16 +459,15 @@
           contentType: 'application/json',
           data: jsonObj,
           error: function(resp){
-            console.log("Oh no...");
-            console.log(resp);
+            //console.log("Oh no...");
+            //console.log(resp);
           },
           success: function(resp){
-            console.log('WooHoo!');
-            console.log("data" +resp);
+            //console.log('WooHoo!');
+            //console.log("data" +resp);
           }
         });
       }
-
       async function run() {
         // load face detection, face landmark model and face recognition models
         await changeFaceDetector(selectedFaceDetector)
