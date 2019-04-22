@@ -6,7 +6,8 @@
 ![sheet](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/folkrnn-sheet.JPG)  
   
 * [textgenrnn](https://github.com/minimaxir/textgenrnn): "a Python 3 module on top of Keras/TensorFlow for creating char-rnns" on Google Colabortory.    
-**Examples** (created by me): [Poems](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/leavesOfGrass_colaboratory_gentext.txt) "by" Walt Whitman (created by training the model on the complete text for [*Leaves of Grass*](http://www.gutenberg.org/ebooks/1322)) and [text](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/holmes_colaboratory_gentext.txt) "by" Arthur Conan Doyle (created by training the model on the complete text for [*The Adventures of Sherlock Holmes*](http://www.gutenberg.org/ebooks/1661))  
-![whitman](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/whitman.JPG)  
+**Examples** (created by me): [Poems](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/leavesOfGrass_colaboratory_gentext.txt) "by" Walt Whitman (created by training the model on the complete text for [*Leaves of Grass*](http://www.gutenberg.org/ebooks/1322))  
+![whitman](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/whitman.JPG) 
+And [text](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/holmes_colaboratory_gentext.txt) "by" Arthur Conan Doyle (created by training the model on the complete text for [*The Adventures of Sherlock Holmes*](http://www.gutenberg.org/ebooks/1661))   
 ![doyle](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/RNN/RNN-Files/doyle.JPG)
 
