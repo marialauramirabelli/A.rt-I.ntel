@@ -9,6 +9,7 @@ For a previous assignment, I used the Python module [textgenrnn](https://github.
 * [“Artists who don’t paint aren’t artists”: Top Five Artists’ Manifestos Of All Time](http://www.thedoublenegative.co.uk/2015/10/top-five-artists-manifestos-of-all-time/)
 * [Manifestos](https://391.org/manifestos/)
 * [8 Artist Statements We Love](http://www.theartleague.org/blog/2015/08/24/artist-statements-we-love/)  
+  
 Having compiled multiple manifestos and statements in a [txt file](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Found-Manifestos.txt), I uploaded it to the [Interactive textgenrnn Demo w/ GPU](https://drive.google.com/file/d/1mMKGnVxirJnqDViH7BDJxFqWrsXlPSoK/view) (Colaboratory Notebook) and was able to obtain the new manifesto. I went through this process several times, not only to get different versions of the text from the same training data, but also by editing the training data itself (by adding and deleting parts of it, as mentioned above). I chose the [final version](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Chosen-Manifesto.txt) based on how "authentic" it seems (the language is very reminiscent of the manifestos/statements I read) and of it having several sections that could be visually represented.  
   
-(TO BE CONTINUE)
+(TO BE CONTINUED)
