@@ -20,7 +20,30 @@ Having compiled multiple manifestos and statements in a [txt file](https://githu
   
 In the image above, the manifesto is presented in a way that juxtaposes the "artificial" with the human, and beyond that, hints at the idea of imitation. The manifesto's text appears in the font Source Code Variable (Adobe), known as a "programming" font, alluding to the machine origin of the text. The first sentence, "Space.", is shown as an image that has been processed with DeepDream (the original background was a galaxy image). However, the frame of the page and the color to highlight sections of the manifesto look like brush strokes, commonly associated to non-digital work, yet these are shapes from the Adobe Illustrator software. Much like the text itself, the strokes pretend to be human-created, even though they are computer-generated.
   
-### Part II: DeepDream & Style Transfer  
-With the new manifesto ready, I proceeded to select the sections I wanted to represent. My preference was mostly based on nouns, on how many concrete ones there were; in a manifesto generated from artists' texts, a considerable percentage of the nouns are abstract (unsurprisingly), words along the lines of "soul", "spirit", "space", etc. In this text in particular, the terms "female", "male", and "woman" appear several times, which I believe is courtesy of Valerie Solanas's *SCUM Manifesto* (1967) (which was listed as an art-realted manifesto in a website I browsed, even though that's not its focus, and thus I included it in my compilation) and Donna Haraways's *A Cyborg Manifesto* (1985) (also listed).
+### Part II: Google Search 
+With the new manifesto ready, I proceeded to select the sections I wanted to represent. My preference was mostly based on nouns, on how many concrete ones there were; in a manifesto generated from artists' texts, a considerable percentage of the nouns are abstract (unsurprisingly), words along the lines of "soul", "spirit", "space", etc. In this text in particular, the terms "female", "male", and "woman" appear several times, which I believe is courtesy of Valerie Solanas's *SCUM Manifesto* (1967) (which was listed as an art-realted manifesto in a website I browsed, even though that's not its main focus, but I included it in my compilation nevertheless) and Donna Haraways's *A Cyborg Manifesto* (1985) (also listed).
 
-to be continued
+The following are the five chosen sections:
+  
+![1](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text1.JPG)
+  
+![2](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text2.JPG)
+  
+![3](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text3.JPG)
+  
+![4](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text4.JPG)
+  
+![5](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text5.JPG)
+  
+Once I had specific text to follow, my next step involved none other than Google's search algorithm. My strategy to find the images for the collages was to carry out Google searches with clusters of terms each of the manifesto selections.   
+  
+For example:  
+  
+![1](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text1.JPG)
+    
+When searching "aesthetic, sense, street" on Google, the eight image result (at the time I was writing this) was the following image:
+  
+
+
+
+### Part III: DeepDream & Style Transfer  
