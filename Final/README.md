@@ -1,4 +1,4 @@
-# *(A)rt man(I)festo*  
+# (A)rt man(I)festo
   
 Some weeks before the submission of my final project for an undergraduate course on artificial intelligence, taken at New York University Abu Dhabi as part of the Interactive Media program, I reflected on how the class had sparked my interest in the implications, hypotheses, and debates that currently surround AI. The technical aspects of artificial intelligence are certainly fascinating, but discussions about the present and future of AI technology led me to think more critically about our relationship and coexistence, as humans, with this "other" kind of intelligence.
   
@@ -37,13 +37,13 @@ The following are the five chosen sections:
   
 Once I had specific text to follow, my next step involved none other than Google's search algorithm. My strategy to find the images for the collages was to carry out Google searches with clusters of terms each of the manifesto selections.   
   
-For example:  
+For example, for the first section:  
   
 ![1](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text1.JPG)
     
-When searching "aesthetic, sense, street" on Google, the eight image result (at the time I was writing this) was the following image:
-  
-
+When searching "aesthetic, sense, street" on Google, the eight image result (at the time I was writing this) was the following:
+    
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/ai2.jpg)
 
 
 ### Part III: DeepDream & Style Transfer  
