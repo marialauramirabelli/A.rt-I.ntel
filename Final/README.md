@@ -1,4 +1,4 @@
-# (A)rt man(I)festo
+# *(A)rt man(I)festo*
   
 Some weeks before the submission of my final project for an undergraduate course on artificial intelligence, taken at New York University Abu Dhabi as part of the Interactive Media program, I reflected on how the class had sparked my interest in the implications, hypotheses, and debates that currently surround AI. The technical aspects of artificial intelligence are certainly fascinating, but discussions about the present and future of AI technology led me to think more critically about our relationship and coexistence, as humans, with this "other" kind of intelligence.
   
@@ -41,9 +41,51 @@ For example, for the first section:
   
 ![1](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text1.JPG)
     
-When searching "aesthetic, sense, street" on Google, the eight image result (at the time I was writing this) was the following:
+When searching "aesthetic, sense, street" on Google, the eighth image result (at the time I was writing this) was the following:
     
-![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/ai2.jpg)
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/ai2.jpg)  
+  
+## Part III: DeepDream & Neural Style Transfer  
+Once the selection of Google images was ready, I used the [deepdream.py](https://github.com/mtyka/deepdream_highres) and [neural_style.py](https://github.com/cysmith/neural-style-tf) Tensorflow implementations to apply DeepDream and style transfer on some of my images. For style transfer specifically, I identified which images could work as content and which could work as style. 
+   
+For example, for the fourth section:  
+  
+![4](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Sections/text4.JPG)
+    
+The image for "mathematic" (used as style) is the following:
+    
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/stylea1.jpg)  
+  
+And an image for "state, steel" (used as content) is this one:  
+  
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/aa4.jpg) 
+ 
+The final result with style transfer (after trying different numbers of iterations when running the code to produce it):  
+  
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/resultW.png) 
+  
+An example of DeepDream, from the same section, comes from the terms "freedom, spirit", which yielded the following result:  
+  
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/aa3.jpg) 
+  
+Applying DeepDream:  
+  
+![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/output.jpg_00008.jpg) 
+  
+## Part IV: Collage
+In this final step, the manipulation and arrangement of the images was entirely up to me, giving me full agency in terms of the creative process. As was pointed out by my professor, though, despite transforming (by cutting and overlapping) and placing the elements of the collage in random and seemingly non-sensical ways, some patterns were ultimately followed that grant meaning to the elements. For instance, in the collage for the fourth section, an image for "parts, sofas" included numbers and text that listed the components of a sofa. This section also has the word "mathematic". Thus, when making the collage, I cut out some of these numbered elements and arranged them in clusters that make "arithmetical" sense (such as 3, 4, and 7, where 3 + 4 = 7). This is, ultimately, what the neural network in textgenrnn did: it followed a process that often produced random and incoherent results, including several nonexistent words (like "disancrete"), but which ultimately adhered quite impressively to the general patterns of the English language. 
+  
+The final collages are the following:
+  
+![1](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Collages/Collage1.jpg)
+  
+![2](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Collages/Collage2.jpg)
+  
+![3](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Collages/Collage3.jpg)
+  
+![4](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Collages/Collage4.jpg)
+  
+![5](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/Collages/Collage5.jpg)
+  
+For the fifth collage, as is evident, I didn't quite follow the same process as for the rest. For this one, not all the images come the words in the manifesto's section: the background is an image of a sky with clouds altered with DeepDream, the yellow circle is just a shape I made, and the arm in the middle is a photograph of a sculpture by Costa Rican artist Néstor Zeledón titled *Yo protesto* ("I protest" in English), inspired by the phrase "the right to problem" from the manifesto. I really wanted to have more creative input in one of the pieces, and given that the last section was the shortest and most abstract, it was the perfect one to experiment on. 
 
-
-## Part III: DeepDream & Style Transfer  
