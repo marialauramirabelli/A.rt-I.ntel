@@ -89,6 +89,7 @@ The final collages are the following:
   
 For the fifth collage, as is evident, I didn't quite follow the same process as for the rest. For this one, not all the images come the words in the manifesto's section: the background is an image of a sky with clouds altered with DeepDream, the yellow circle is just a shape I made, and the arm in the middle is a photograph of a sculpture by Costa Rican artist Néstor Zeledón titled *Yo protesto* ("I protest" in English), inspired by the phrase "the right to problem" from the manifesto. I really wanted to have more creative input in one of the pieces, and given that the last section was the shortest and most abstract, it was the perfect one to experiment on. 
   
+## Exhibition
 The following photographs show the layout of the manifesto and the collages during the NYUAD Interactive Media end-of-semester showcase, where they were exhibited alongside all other IM final projects. 
   
 ![img](https://github.com/marialauramirabelli/A.rt-I.ntel/blob/master/Final/exhibition1.jpg)  
