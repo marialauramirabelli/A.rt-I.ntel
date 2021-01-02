@@ -1,0 +1,136 @@
+#citizenNum {
+  font-weight: bold;
+}
+
+.page-container {
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 300px;
+  display: block;
+  width: 100 vw;
+}
+
+.container-fluid {
+  /*margin-bottom: 10px;*/
+  background-image: url('backgroundRed.jpg');
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+
+} 
+
+.row {
+  margin: 10px;
+}
+
+body {
+    font-family: 'Special Elite', cursive;
+    background-color: black;
+    color: white;
+}
+
+/*body{
+  background-color: black;
+}*/
+
+
+#my_camera, #ref, #query, #exp{
+  float:left; 
+  display: inline-block;
+  margin: 0;
+}
+
+.title1{
+  color: white;
+  font-weight: bold;
+  font-size: 500%;
+  margin: 0;
+}
+
+.title2{
+  color: white;
+  font-size: 1em;
+}
+
+.title3{
+  float: clear;
+  display: block;
+  color: white;
+  text-align: left;
+  font-size: 1.5em;
+  margin-top: 6%;
+}
+
+.title4{
+  float: clear;
+  display: block;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+  font-size: 2.5em;
+  margin-top: 2%;
+  text-decoration: underline wavy white;
+}
+
+.personal-info {
+  text-align: center;
+}
+
+.information {
+  display: none;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+  background-color: black;
+
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.side-by-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side-by-side >* {
+  margin: 0 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin-sm {
+  margin: 5px;
+}
+
+.margin {
+  margin: 20px;
+}
+
+
+#github-link {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+#overlay, .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#facesContainer canvas {
+  margin: 10px;
+}
