@@ -2,9 +2,6 @@
   
 *Video that demonstrates how the system works*: https://youtu.be/2oIxO5ygZq4  
   
-*Final version of the code*: https://github.com/marialauramirabelli/A.rt-I.ntel---Midterm/tree/master/midterm_finalVersion  
-*Previous versions of the code (process)*: https://github.com/marialauramirabelli/A.rt-I.ntel---Midterm/tree/master/midterm  
-  
 ## Concept & Installation:
 
 This project resulted in a combination of our two midterm project ideas, one which measures the degree of "happiness" in individuals as they pass by a government-run machine (in a reality in which it's the government's priority to ensure that its citizens are content, or  alternatively, to force them to be), and the other which tackles the idea of a social credit system that restricts or grants access/privileges to citizens depending on their scores. 
